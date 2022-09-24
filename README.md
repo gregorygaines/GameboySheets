@@ -1,6 +1,6 @@
 # Gameboy Sheets
 
----
+![Demo](./images/demo.gif)
 
 A Gameboy emulator that draws using Google Sheets using [gameboy.js](https://github.com/juchi/gameboy.js) as a core.
 
