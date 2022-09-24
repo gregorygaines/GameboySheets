@@ -816,11 +816,8 @@ var GameboyJS;
       }
     }
 
-    // Skip every n
-    if (count > frameSkip) {
-      drawQueue.push(gridColors);
-    }
-
+    drawQueue.push(gridColors);
+    
     if (drawQueue.length > 0) {
       if (!executingDraw) {
         executingDraw = true;
