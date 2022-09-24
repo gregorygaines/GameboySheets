@@ -7,11 +7,11 @@ A Gameboy emulator that draws using Google Sheets using [gameboy.js](https://git
 ## Usage
 
 The sheet is located [here](https://docs.google.com/spreadsheets/d/1W0f9jmZixQqK2EMZImZoIlqF-MXp1-Ek6mDdX2gfmWo). Click "File" then "Make a copy" to get your own version. In the tool bar,
-you can click the "Gameboy Emulator" tab to open the side dialog. 
+you can click the "Gameboy Emulator" tab to open the side dialog.
 
-When opening you may get a scawy popup like:
+When opening you may get a scary popup like:
 
-![Scawy Popup](./images/scawy_popup.png)
+![Scary Popup](./images/scary_popup.png)
 
 Just scroll down and click "Go to Gameboy Sheets". Afterwards, you might be greeted with a popup about permissions, just do the same thing.
 
@@ -31,4 +31,5 @@ frames are stored in a queue which is sent only when the previous command is don
 
 ## Limitations
 
-It's quit slow. Google only allows only a certain amount of scripts to be 
+- It's slow.
+- No way to queue commands on the server, so the client has to send them one-by-one.
