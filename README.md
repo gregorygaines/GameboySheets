@@ -2,7 +2,7 @@
 
 [Demo](https://docs.google.com/spreadsheets/d/1W0f9jmZixQqK2EMZImZoIlqF-MXp1-Ek6mDdX2gfmWo)
 
-[Write-up]()
+[Write-up](https://dev.to/gregorygaines/my-attempt-at-running-a-gameboy-emulator-in-google-sheets-24fp)
 
 ![Demo](./images/demo.gif)
 
