@@ -10,8 +10,11 @@ A Gameboy emulator that draws using Google Sheets using [gameboy.js](https://git
 
 ## Usage
 
-The sheet is located [here](https://docs.google.com/spreadsheets/d/1W0f9jmZixQqK2EMZImZoIlqF-MXp1-Ek6mDdX2gfmWo). Click "File" then "Make a copy" to get your own version. In the tool bar,
-you can click the "Gameboy Emulator" tab to open the side dialog.
+The sheet is located [here](https://docs.google.com/spreadsheets/d/1W0f9jmZixQqK2EMZImZoIlqF-MXp1-Ek6mDdX2gfmWo). Click "File" then "Make a copy" to get your own version.
+After copying, you will have to wait a couple seconds for the script to activate.
+In the toolbar, you can click the "Gameboy Emulator" tab to open the side dialog.
+The script should automatically switch to the "GameboyScreen" sheet, if not switch to it manually.
+You can view the code by clicking "Extensions" in the toolbar and click "Apps Script".
 
 When opening you may get a scary popup like:
 
