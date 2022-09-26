@@ -1,5 +1,9 @@
 # Gameboy Sheets
 
+[Demo](https://docs.google.com/spreadsheets/d/1W0f9jmZixQqK2EMZImZoIlqF-MXp1-Ek6mDdX2gfmWo)
+
+[Write-up]()
+
 ![Demo](./images/demo.gif)
 
 A Gameboy emulator that draws using Google Sheets using [gameboy.js](https://github.com/juchi/gameboy.js) as a core.
@@ -26,8 +30,11 @@ First the emulator was hosted server side but Google decided that scripts could 
 ![Runetime limit](./images/runtime_limit.png)
 
 This make emulation on the server impossible. Instead, I opted to creating a sidebar which run the gameboy emulation and sends a draw command every frame
-to the Google sheets server. Since commands execute asynchronously and Google has a limit for sent commands,
-frames are stored in a queue which is sent only when the previous command is done executing which is another bottleneck.
+to the Google sheets server.
+
+Since commands execute asynchronously and Google has a limit for command execution,
+drawn frames are stored in a queue which is sent to the server only when the previous 
+command is done executing.
 
 ## Limitations
 

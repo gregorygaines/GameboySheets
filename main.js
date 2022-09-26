@@ -3,40 +3,44 @@ const SCREEN_HEIGHT = 144;
 const PIXEL_SIZE = 4;
 
 const onOpen = (e) => {
-  const sheet = SpreadsheetApp.getActiveSheet();
-  const maxCols = sheet.getMaxColumns();
-  const maxRows = sheet.getMaxRows();
+  // Not the owner can't play
+  if (e.user === "gainesagregory@gmail.com") {
+    openInstructionSheet();
+  } else {
+    openGameboyScreenSheet();
 
-  // Resize grid
-  resizeSheetToGameboyDims(sheet, maxRows, maxCols);
+    const sheet = SpreadsheetApp.getActiveSheet();
+    const maxCols = sheet.getMaxColumns();
+    const maxRows = sheet.getMaxRows();
 
-  // Set the size of rows and cols to a pixel
-  setSheetRowAndColsToSizeOfPixel(sheet, maxRows, maxCols);
+    // Resize grid
+    resizeSheetToGameboyDims(sheet, maxRows, maxCols);
 
-  // Clear sheet
-  clearSheet(sheet);
+    // Set the size of rows and cols to a pixel
+    setSheetRowAndColsToSizeOfPixel(sheet, maxRows, maxCols);
 
-  // Add dialog menu action
-  SpreadsheetApp
-    .getUi()
-    .createMenu("Gameboy Emulator")
-    .addItem("Show Dialog", "showDialog")
-    .addToUi();
+    // Clear sheet
+    clearSheet(sheet);
 
-  // Open dialog automatically
-  createSpreadsheetOpenTrigger();
+    // Add dialog menu action
+    SpreadsheetApp
+      .getUi()
+      .createMenu("Gameboy Emulator")
+      .addItem("Show Dialog", "showDialog")
+      .addToUi();
 
-
-  // TODO CLEAR SHEETS ON EVERY RENDER
+    // Open dialog automatically
+    createSpreadsheetOpenTrigger();
+  }
 }
 
-function createSpreadsheetOpenTrigger() {
+const createSpreadsheetOpenTrigger = () => {
   var ss = SpreadsheetApp.getActive();
   ScriptApp.newTrigger('showDialog')
     .forSpreadsheet(ss)
     .onOpen()
     .create();
-}
+};
 
 const showDialog = () => {
   const widget = HtmlService.createTemplateFromFile("dialog.html").evaluate();
@@ -68,6 +72,16 @@ const clearSheet = (sheet) => {
   range.setBackground("#ffffff");
 }
 
+const openGameboyScreenSheet = () => {
+  const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  spreadsheet.setActiveSheet(spreadsheet.getSheets()[1]);
+}
+
+const openInstructionSheet = () => {
+  const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  spreadsheet.setActiveSheet(spreadsheet.getSheets()[0]);
+}
+
 // Client side functions
 
 const include = filename => {
@@ -78,7 +92,7 @@ const include = filename => {
 const drawGrid = (colors) => {
   try {
     const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const sheet = ss.getSheets()[0];
+    const sheet = ss.getSheets()[1];
     const range = sheet.getRange("1:144");
     range.setBackgrounds(colors);
     SpreadsheetApp.flush();
